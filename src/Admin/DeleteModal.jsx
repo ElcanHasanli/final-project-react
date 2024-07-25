@@ -1,8 +1,8 @@
-// Firebase
+
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
-// Toast
+
 import toast from "react-hot-toast";
 
 const DeleteModal = ({ setWantDelete, deleteProductId }) => {

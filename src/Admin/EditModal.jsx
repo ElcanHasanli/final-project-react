@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import AddCss from "../Admin/Add.module.css";
 import { doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { db } from "../firebase/firebase"; // Adjust the path based on your project structure
+import { db } from "../firebase/firebase"; 
 
 const EditModal = ({ editProductId, setWantEdit, selectedProduct }) => {
   const [productName, setProductName] = useState(selectedProduct.title);
@@ -43,12 +43,12 @@ const EditModal = ({ editProductId, setWantEdit, selectedProduct }) => {
       let filePath = currentImgUrl;
 
       if (productImg) {
-        // Upload image to Firebase Storage
+       
         const storage = getStorage();
         const storageRef = ref(storage, `products/${productImg.name}`);
         await uploadBytes(storageRef, productImg);
 
-        // Get the download URL for the uploaded image
+       
         filePath = `${productImg.name}`;
       }
 
@@ -64,7 +64,7 @@ const EditModal = ({ editProductId, setWantEdit, selectedProduct }) => {
 
       toast.success("Item successfully edited.");
 
-      // Reset form fields if necessary
+    
       setProductName("");
       setProductPrice("");
       setDescription("");

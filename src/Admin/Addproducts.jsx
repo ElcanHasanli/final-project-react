@@ -48,15 +48,15 @@ const AddProducts = ({ products, loading, error }) => {
     setIsLoading(true);
 
     try {
-      // Upload image to Firebase Storage
+     
       const storage = getStorage();
       const storageRef = ref(storage, `products/${productImg.name}`);
       await uploadBytes(storageRef, productImg);
 
-      // Store file path in Firestore
+     
       const filePath = `${productImg.name}`;
 
-      // Add product data to Firestore
+    
       const docRef = await addDoc(collection(db, "products"), {
         title: productName,
         price: productPrice,
@@ -71,7 +71,7 @@ const AddProducts = ({ products, loading, error }) => {
       console.log("Document written with ID: ", docRef.id);
       toast.success("Item successfully added.");
 
-      // Reset form fields
+    
       setProductName("");
       setProductPrice("");
       setDescription("");
